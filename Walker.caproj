@@ -198,6 +198,7 @@
         <event-folder name="Sheets">
             <event-sheet>Devices.xml</event-sheet>
             <event-sheet>Inventory.xml</event-sheet>
+            <event-sheet>Gui.xml</event-sheet>
         </event-folder>
         <event-sheet>EventSheet.xml</event-sheet>
     </event-folder>

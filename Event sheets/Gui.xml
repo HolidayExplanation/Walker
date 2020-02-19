@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Gui</name>
+    <events>
+        <event-group description="" sid="402214077604589" title="Daytime Calculation">
+            <sub-events>
+                <comment>24 hours ingame = 1 second setting =&gt; 24 minutes real time</comment>
+                <event-block sid="576491231859589">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="788829923935551" type="System">
+                            <param id="0" name="Interval (seconds)">0.5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Add to" sid="673541207715694" type="Globals">
+                            <param id="0" name="Instance variable">Minute</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="858948512209242">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="592425483372590" type="HudText">
+                                    <param id="0" name="Instance variable">Type</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Daytime&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="944150667526039">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="819380563186346" type="Globals">
+                                            <param id="0" name="Instance variable">Hour</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">9</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="968967917338136" type="Globals">
+                                            <param id="0" name="Instance variable">Minute</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">9</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="348745648021304" type="HudText">
+                                            <param id="0" name="Text">&quot;Day &quot; &amp; Globals.Day &amp;  &quot;    &quot; &amp; &quot;0&quot; &amp; Globals.Hour &amp; &quot;:&quot; &amp; &quot;0&quot; &amp; Globals.Minute</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="564811383990143">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="311748015809733" type="Globals">
+                                            <param id="0" name="Instance variable">Hour</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">10</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="996361467643683" type="Globals">
+                                            <param id="0" name="Instance variable">Minute</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">9</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="682258380404383" type="HudText">
+                                            <param id="0" name="Text">&quot;Day &quot; &amp; Globals.Day &amp;  &quot;    &quot; &amp; Globals.Hour &amp; &quot;:&quot; &amp; &quot;0&quot; &amp; Globals.Minute</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="592646855296971">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="816093343901034" type="Globals">
+                                            <param id="0" name="Instance variable">Hour</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">9</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="986857839964140" type="Globals">
+                                            <param id="0" name="Instance variable">Minute</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">10</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="902980435096560" type="HudText">
+                                            <param id="0" name="Text">&quot;Day &quot; &amp; Globals.Day &amp;  &quot;    &quot; &amp; Globals.Hour &amp; &quot;:&quot; &amp; Globals.Minute</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="576144022545245">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="570504596549076" type="Globals">
+                                            <param id="0" name="Instance variable">Hour</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">10</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="106687997365300" type="Globals">
+                                            <param id="0" name="Instance variable">Minute</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">10</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="284831366446015" type="HudText">
+                                            <param id="0" name="Text">&quot;Day &quot; &amp; Globals.Day &amp;  &quot;    &quot; &amp;  Globals.Hour &amp; &quot;:&quot; &amp; Globals.Minute</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="624489906884720" title="Stamina">
+            <sub-events>
+                <event-block sid="933408698795017">
+                    <conditions>
+                        <condition behavior="8Direction" id="1" name="Compare speed" sid="678494606741933" type="Player">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="Speed">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="357533778329035">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="747384162294652" type="System">
+                                    <param id="0" name="Interval (seconds)">0.05</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="820306014928379" type="Player">
+                                    <param id="0" name="Instance variable">Stamina</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Subtract from" sid="533157213002009" type="Player">
+                                    <param id="0" name="Instance variable">Stamina</param>
+                                    <param id="1" name="Value">0.35</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="822059729294509">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="232088992625793" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="310175787612734">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="674796180677675" type="Player">
+                                    <param id="0" name="Instance variable">Stamina</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">100</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Add to" sid="982827934988085" type="Player">
+                                    <param id="0" name="Instance variable">Stamina</param>
+                                    <param id="1" name="Value">0.30</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="608409252123719" title="Bars">
+            <sub-events>
+                <comment>If running, 0.60 and 0.30</comment>
+                <event-block sid="497253748367950">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="782352743387376" type="System">
+                            <param id="0" name="Interval (seconds)">0.05</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="644800123352255">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="472476486655495" type="Hud">
+                                    <param id="0" name="Instance variable">Type</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Health&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="297889644323908" type="Hud">
+                                    <param id="0" name="Width">Player.Health</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="412997540075856">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="699593811132504" type="Hud">
+                                    <param id="0" name="Instance variable">Type</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Stamina&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="798864291639448" type="Hud">
+                                    <param id="0" name="Width">Player.Stamina</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="591632383279710">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="235590471737642" type="Hud">
+                                    <param id="0" name="Instance variable">Type</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Hunger&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-6" name="Set height" sid="449556283381989" type="Hud">
+                                    <param id="0" name="Height">Player.Hunger / 2.94</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="564731298139091">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="174343756683963" type="Hud">
+                                    <param id="0" name="Instance variable">Type</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Thirst&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-6" name="Set height" sid="340753245854404" type="Hud">
+                                    <param id="0" name="Height">Player.Thirst / 2.94</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="382337497076252">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="621603673108322" type="Player">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">100</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="597806825634301" type="Player">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Value">100</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="139832449124542">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="922600691133001" type="Player">
+                                    <param id="0" name="Instance variable">Stamina</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">100</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="278019595472908" type="Player">
+                                    <param id="0" name="Instance variable">Stamina</param>
+                                    <param id="1" name="Value">100</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="594517960385574">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="859846066766220" type="Player">
+                                    <param id="0" name="Instance variable">Hunger</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">100</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="163539766519910" type="Player">
+                                    <param id="0" name="Instance variable">Hunger</param>
+                                    <param id="1" name="Value">100</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="335089366395662">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="309207592478740" type="Player">
+                                    <param id="0" name="Instance variable">Thirst</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">100</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="480467032225066" type="Player">
+                                    <param id="0" name="Instance variable">Thirst</param>
+                                    <param id="1" name="Value">100</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
