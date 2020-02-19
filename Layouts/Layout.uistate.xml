@@ -4,17 +4,17 @@
 It is entirely optional and the project will load without it.  If you are placing the project under source control,
 you probably do not want to add any .uistate.xml files to the repository.-->
     <camera>
-        <position-x>49.4628</position-x>
-        <position-y>133.733</position-y>
-        <position-z>35.0493</position-z>
-        <lookat-x>49.4628</lookat-x>
-        <lookat-y>133.733</lookat-y>
+        <position-x>106.109</position-x>
+        <position-y>401.028</position-y>
+        <position-z>19.4457</position-z>
+        <lookat-x>106.109</lookat-x>
+        <lookat-y>401.028</lookat-y>
         <lookat-z>0</lookat-z>
     </camera>
     <snap-to-grid>1</snap-to-grid>
     <show-grid>0</show-grid>
-    <snap-width>2</snap-width>
-    <snap-height>2</snap-height>
+    <snap-width>1</snap-width>
+    <snap-height>1</snap-height>
     <show-collision-polys>0</show-collision-polys>
     <translucent-inactive-layers>0</translucent-inactive-layers>
     <properties>
@@ -23,10 +23,11 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <property expanded="0" name="Margins" />
         <property expanded="1" name="Effects" />
     </properties>
-    <active-layer name="InventorySlots" />
+    <active-layer name="Bars" />
     <layers>
         <layer locked="1" name="Background" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="Objects" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Bars" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="Gui" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="InventorySlots" parallax-in-editor="0" visible="1" />
     </layers>

@@ -6,6 +6,22 @@
         <comment>Please only put includes into this file.</comment>
         <comment>This is the main logic file, and everything put in here will run when the game starts.</comment>
         <include>Devices</include>
+        <include>StatsForNerds</include>
         <include>Inventory</include>
+        <event-block sid="397037027578627">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="131230378779410" type="System" />
+            </conditions>
+            <actions>
+                <action id="5" name="Set web font" sid="793079849628068" type="StatsForNerds">
+                    <param id="0" name="Family name">&quot;m5x7medium&quot;</param>
+                    <param id="1" name="CSS URL">&quot;stylesheet.css&quot;</param>
+                </action>
+                <action id="5" name="Set web font" sid="569005938633472" type="SlotText">
+                    <param id="0" name="Family name">&quot;m5x7medium&quot;</param>
+                    <param id="1" name="CSS URL">&quot;stylesheet.css&quot;</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

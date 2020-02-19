@@ -2,5 +2,18 @@
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>StatsForNerds</name>
-    <events />
+    <events>
+        <event-block sid="632445350856787">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="511533011849538" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="137177526905915" type="StatsForNerds">
+                    <param id="0" name="Text">&quot;FPS: &quot; &amp; fps &amp; newline &amp; &quot;CPU: &quot; &amp;  round((cpuutilisation * 100) * 100) / 100  &amp; &quot;%&quot; &amp; newline &amp; &quot;Player X/Y: &quot; &amp; ceil(Player.X) &amp; &quot;, &quot;  &amp; ceil(Player.Y) &amp; newline &amp; &quot;Allocated: &quot; &amp; ImageMemoryUsage &amp; &quot; MB&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
 </c2eventsheet>
