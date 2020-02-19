@@ -10,6 +10,12 @@
     <unique-id>1prl91atnfrun</unique-id>
     <saved-with-version>27500</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="NodeWebkit" version="1">NW.js</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
     </used-plugins>
     <used-behaviors>
@@ -44,6 +50,27 @@
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
     <object-folder>
+        <object-folder name="Methods">
+            <object-type name="Browser" sid="963666904945788">
+                <plugin id="Browser" />
+            </object-type>
+            <object-type name="Function" sid="812603633322418">
+                <plugin id="Function" />
+            </object-type>
+            <object-type name="Mouse" sid="861419004836719">
+                <plugin id="Mouse" />
+            </object-type>
+            <object-type name="Keyboard" sid="459395361411326">
+                <plugin id="Keyboard" />
+            </object-type>
+            <object-type name="Audio" sid="785524663512161">
+                <plugin id="Audio" />
+            </object-type>
+            <object-type name="NWjs" sid="677977729566170">
+                <plugin id="NodeWebkit" />
+            </object-type>
+        </object-folder>
+        <object-folder name="Prefabs" />
         <object-type name="Player" sid="210790270977429">
             <plugin id="Sprite" />
             <instance-variables>
@@ -97,7 +124,27 @@
         </event-folder>
         <event-sheet>EventSheet.xml</event-sheet>
     </event-folder>
-    <global-instances />
+    <global-instances>
+        <global-instance type="Browser" uid="2" />
+        <global-instance type="Function" uid="3" />
+        <global-instance type="Mouse" uid="4" />
+        <global-instance type="Keyboard" uid="5" />
+        <global-instance type="Audio" uid="6">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
+        <global-instance type="NWjs" uid="7" />
+    </global-instances>
     <sounds-folder />
     <music-folder />
     <files-folder>
