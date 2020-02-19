@@ -3,6 +3,27 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Gui</name>
     <events>
+        <event-group description="" sid="529792141851824" title="StatsForNerds">
+            <sub-events>
+                <event-block sid="441100172266683">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="783960256616930" type="System">
+                            <param id="0" name="Interval (seconds)">1.0</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="613211531020426" type="HudText">
+                            <param id="0" name="Instance variable">Type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;StatsForNerds&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="288573693661294" type="HudText">
+                            <param id="0" name="Text">&quot;FPS: &quot; &amp; fps &amp; newline &amp; &quot;CPU: &quot; &amp;  round((cpuutilisation * 100) * 100) / 100  &amp; &quot;%&quot; &amp; newline &amp; &quot;Player X/Y: &quot; &amp; ceil(Player.X) &amp; &quot;, &quot;  &amp; ceil(Player.Y) &amp; newline &amp; &quot;Allocated: &quot; &amp; ImageMemoryUsage &amp; &quot; MB&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-group description="" sid="402214077604589" title="Daytime Calculation">
             <sub-events>
                 <comment>24 hours ingame = 1 second setting =&gt; 24 minutes real time</comment>

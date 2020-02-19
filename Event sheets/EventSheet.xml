@@ -5,8 +5,8 @@
     <events>
         <comment>Please only put includes into this file.</comment>
         <comment>This is the main logic file, and everything put in here will run when the game starts.</comment>
+        <include>Gui</include>
         <include>Devices</include>
-        <include>StatsForNerds</include>
         <include>Inventory</include>
         <event-block sid="397037027578627">
             <conditions>

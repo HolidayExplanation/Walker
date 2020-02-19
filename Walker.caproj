@@ -192,9 +192,7 @@
         <layout>Layout.xml</layout>
     </layout-folder>
     <event-folder>
-        <event-folder name="Parts">
-            <event-sheet>StatsForNerds.xml</event-sheet>
-        </event-folder>
+        <event-folder name="Parts" />
         <event-folder name="Sheets">
             <event-sheet>Devices.xml</event-sheet>
             <event-sheet>Inventory.xml</event-sheet>
