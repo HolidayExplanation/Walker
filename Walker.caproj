@@ -145,8 +145,11 @@
                 <instance-variable name="ID" sid="643442390731502" type="number" />
             </instance-variables>
         </object-type>
-        <object-type name="StatsForNerds" sid="658898676259266">
+        <object-type name="HudText" sid="658898676259266">
             <plugin id="Text" />
+            <instance-variables>
+                <instance-variable name="Type" sid="747845918466450" type="string" />
+            </instance-variables>
         </object-type>
         <object-type name="Hud" sid="963007390702455">
             <plugin id="Sprite" />
@@ -167,6 +170,19 @@
                     <frame duration="1" hotspotX="0" hotspotY="0.6" original-source="C:\Users\AnonymousLabMouse\Desktop\Tiles_8.png" />
                     <frame duration="1" hotspotX="0" hotspotY="0.5" original-source="C:\Users\AnonymousLabMouse\Desktop\Tiles_10.png" />
                     <frame duration="1" hotspotX="0" hotspotY="0.666667" original-source="C:\Users\AnonymousLabMouse\Desktop\Tiles_13.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Globals" sid="972893031877255">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Day" sid="469089319788348" type="number" />
+                <instance-variable name="Hour" sid="195129087635832" type="number" />
+                <instance-variable name="Minute" sid="290798827875375" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="757539031104573" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
         </object-type>

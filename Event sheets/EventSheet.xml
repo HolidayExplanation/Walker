@@ -13,7 +13,7 @@
                 <condition id="-2" name="On start of layout" sid="131230378779410" type="System" />
             </conditions>
             <actions>
-                <action id="5" name="Set web font" sid="793079849628068" type="StatsForNerds">
+                <action id="5" name="Set web font" sid="793079849628068" type="HudText">
                     <param id="0" name="Family name">&quot;m5x7medium&quot;</param>
                     <param id="1" name="CSS URL">&quot;stylesheet.css&quot;</param>
                 </action>
@@ -199,6 +199,109 @@
                             <param id="1" name="Value">100</param>
                         </action>
                     </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="705413142181909">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="534660644769429" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Add to" sid="463571339600978" type="Globals">
+                    <param id="0" name="Instance variable">Minute</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="336466793328687">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="807338794686383" type="HudText">
+                            <param id="0" name="Instance variable">Type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Daytime&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="213557543233517">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="487213907113224" type="Globals">
+                                    <param id="0" name="Instance variable">Hour</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">9</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="607318461978614" type="Globals">
+                                    <param id="0" name="Instance variable">Minute</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">9</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="897258717543479" type="HudText">
+                                    <param id="0" name="Text">&quot;Day &quot; &amp; Globals.Day &amp;  &quot;    &quot; &amp; &quot;0&quot; &amp; Globals.Hour &amp; &quot;:&quot; &amp; &quot;0&quot; &amp; Globals.Minute</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="264618762169520">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="370949752743225" type="Globals">
+                                    <param id="0" name="Instance variable">Hour</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">10</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="473052175486606" type="Globals">
+                                    <param id="0" name="Instance variable">Minute</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">9</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="407274568962120" type="HudText">
+                                    <param id="0" name="Text">&quot;Day &quot; &amp; Globals.Day &amp;  &quot;    &quot; &amp; Globals.Hour &amp; &quot;:&quot; &amp; &quot;0&quot; &amp; Globals.Minute</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="751867625013285">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="951262737621439" type="Globals">
+                                    <param id="0" name="Instance variable">Hour</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">9</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="165324367158405" type="Globals">
+                                    <param id="0" name="Instance variable">Minute</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">10</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="909059826159952" type="HudText">
+                                    <param id="0" name="Text">&quot;Day &quot; &amp; Globals.Day &amp;  &quot;    &quot; &amp; Globals.Hour &amp; &quot;:&quot; &amp; Globals.Minute</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="100880369656292">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="887282991837037" type="Globals">
+                                    <param id="0" name="Instance variable">Hour</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">10</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="749290087498264" type="Globals">
+                                    <param id="0" name="Instance variable">Minute</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">10</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="875668964488922" type="HudText">
+                                    <param id="0" name="Text">&quot;Day &quot; &amp; Globals.Day &amp;  &quot;    &quot; &amp;  Globals.Hour &amp; &quot;:&quot; &amp; Globals.Minute</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-block>
