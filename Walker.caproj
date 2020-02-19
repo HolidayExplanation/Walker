@@ -92,6 +92,9 @@
         <event-folder name="Parts">
             <event-sheet>StatsForNerds.xml</event-sheet>
         </event-folder>
+        <event-folder name="Sheets">
+            <event-sheet>Devices.xml</event-sheet>
+        </event-folder>
         <event-sheet>EventSheet.xml</event-sheet>
     </event-folder>
     <global-instances />

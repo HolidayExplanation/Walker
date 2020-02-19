@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Devices</name>
+    <events>
+        <event-group description="" sid="474774400793193" title="Camera">
+            <sub-events>
+                <comment>Lerp makes the camera smooth</comment>
+                <variable constant="0" name="smooth_amount" sid="481948221673611" static="1" type="number">0.03</variable>
+                <event-block sid="890157699159088">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="533388196635791" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="269915382331739" type="Camera">
+                            <param id="0" name="X">lerp(Self.X, Player.X, smooth_amount)</param>
+                            <param id="1" name="Y">lerp(Self.Y, Player.Y, smooth_amount)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
