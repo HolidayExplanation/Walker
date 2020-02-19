@@ -10,6 +10,7 @@
     <unique-id>1prl91atnfrun</unique-id>
     <saved-with-version>27500</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
@@ -28,8 +29,8 @@
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
     <window-size>
-        <width>854</width>
-        <height>480</height>
+        <width>512</width>
+        <height>288</height>
     </window-size>
     <pixel-rounding>1</pixel-rounding>
     <preview-effects>1</preview-effects>
@@ -71,6 +72,19 @@
             </object-type>
         </object-folder>
         <object-folder name="Prefabs" />
+        <object-folder name="Gui">
+            <object-type name="SlotBackground" sid="122149689043773">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="ID" sid="789956545498980" type="number" />
+                </instance-variables>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="919077423754167" speed="5">
+                        <frame duration="1" hotspotX="0.52" hotspotY="0.52" original-source="C:\Users\AnonymousLabMouse\Desktop\Assets\Slot.PNG" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
         <object-type name="Player" sid="210790270977429">
             <plugin id="Sprite" />
             <instance-variables>
@@ -110,6 +124,20 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type global="1" name="arrInventory" sid="602355395900242">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="Slot" sid="198446910523197">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="ID" sid="442070800716822" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="727839731534055" speed="5">
+                    <frame duration="1" hotspotX="0.52" hotspotY="0.52" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
@@ -121,6 +149,7 @@
         </event-folder>
         <event-folder name="Sheets">
             <event-sheet>Devices.xml</event-sheet>
+            <event-sheet>Inventory.xml</event-sheet>
         </event-folder>
         <event-sheet>EventSheet.xml</event-sheet>
     </event-folder>
