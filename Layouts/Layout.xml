@@ -137,13 +137,38 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <Amount>1</Amount>
+                        <Amount>6</Amount>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>229</x>
-                        <y>251</y>
+                        <x>205</x>
+                        <y>195</y>
+                        <z>0</z>
+                        <width>30</width>
+                        <height>30</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Item" uid="80">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>1</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Amount>8</Amount>
+                    </instance-variables>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>308</x>
+                        <y>323</y>
                         <z>0</z>
                         <width>30</width>
                         <height>30</height>

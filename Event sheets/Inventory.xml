@@ -248,7 +248,9 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <variable comment="Limits the amount of Items a Slot can hold." constant="1" name="BULK_LIMITER" sid="263649407076177" static="0" type="number">10</variable>
         <variable constant="0" name="slotFound" sid="505779698588356" static="0" type="number">0</variable>
+        <variable constant="0" name="remainder" sid="657411423322736" static="0" type="number">0</variable>
         <event-block sid="975889176484158">
             <conditions>
                 <condition id="6" name="On object clicked" sid="221151579738236" type="Mouse">
@@ -258,6 +260,67 @@
                 </condition>
             </conditions>
             <actions>
+                <action id="14" name="Log" sid="567213190125801" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">&quot;Item clicked!&quot;</param>
+                </action>
+                <action id="0" name="Call function" sid="932656666219504" type="Function">
+                    <param id="0" name="Name">&quot;AddToInventory&quot;</param>
+                    <param id="1" name="Parameter {n}">Item.AnimationFrame{###}Item.Amount{###}Item.UID</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="492426147325921">
+            <conditions>
+                <condition id="0" name="On function" sid="597951981287266" type="Function">
+                    <param id="0" name="Name">&quot;UpdateInventory&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="842643730129365">
+                    <conditions>
+                        <condition id="-24" name="For Each (ordered)" sid="665566885439190" type="System">
+                            <param id="0" name="Object">Slot</param>
+                            <param id="1" name="Expression">Slot.ID</param>
+                            <param id="2" name="Order">0</param>
+                        </condition>
+                        <condition id="-9" name="Is visible" sid="281243621814201" type="Slot" />
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="875868994630492" type="Slot">
+                            <param id="0" name="Frame number">arrInventory.At(Slot.ID, 0)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="622236430555064">
+                    <conditions>
+                        <condition id="-24" name="For Each (ordered)" sid="356701454044965" type="System">
+                            <param id="0" name="Object">SlotText</param>
+                            <param id="1" name="Expression">SlotText.ID</param>
+                            <param id="2" name="Order">0</param>
+                        </condition>
+                        <condition id="-9" name="Is visible" sid="980626804772974" type="SlotText" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="178138324431801" type="SlotText">
+                            <param id="0" name="Text">arrInventory.At(SlotText.ID, 1)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="941108834371178">
+            <conditions>
+                <condition id="0" name="On function" sid="431190899367800" type="Function">
+                    <param id="0" name="Name">&quot;AddToInventory&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="14" name="Log" sid="318497981834362" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">&quot;Add to Inventory runs!&quot;</param>
+                </action>
                 <action id="-9" name="Set value" sid="853288188000115" type="System">
                     <param id="0" name="Variable">slotFound</param>
                     <param id="1" name="Value">0</param>
@@ -301,17 +364,80 @@
                                             <param id="3" name="Value">Item.AnimationFrame</param>
                                         </condition>
                                     </conditions>
-                                    <actions>
-                                        <action id="3" name="Set at XY" sid="495862348764374" type="arrInventory">
-                                            <param id="0" name="X">Slot.ID</param>
-                                            <param id="1" name="Y">1</param>
-                                            <param id="2" name="Value">arrInventory.At(Slot.ID, 1) + Item.Amount</param>
-                                        </action>
-                                        <action id="-9" name="Set value" sid="943135076152032" type="System">
-                                            <param id="0" name="Variable">slotFound</param>
-                                            <param id="1" name="Value">1</param>
-                                        </action>
-                                    </actions>
+                                    <actions />
+                                    <sub-events>
+                                        <comment>Item amount fits into Slot</comment>
+                                        <event-block sid="450735750588377">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="291498492709608" type="System">
+                                                    <param id="0" name="First value">arrInventory.At(Slot.ID, 1) + Function.Param(1)</param>
+                                                    <param id="1" name="Comparison">3</param>
+                                                    <param id="2" name="Second value">BULK_LIMITER</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="3" name="Set at XY" sid="495862348764374" type="arrInventory">
+                                                    <param id="0" name="X">Slot.ID</param>
+                                                    <param id="1" name="Y">1</param>
+                                                    <param id="2" name="Value">arrInventory.At(Slot.ID, 1) + Function.Param(1)</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="943135076152032" type="System">
+                                                    <param id="0" name="Variable">slotFound</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="821854196170957" type="Function">
+                                                    <param id="0" name="Name">&quot;DestroyItem&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Function.Param(2)</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <comment>Item amount does not fit into Slot</comment>
+                                        <event-block sid="934570149496824">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="916933489309210" type="System" />
+                                                <condition id="-4" name="Trigger once while true" sid="770017608831616" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="3" name="Set at XY" sid="928631265044345" type="arrInventory">
+                                                    <param id="0" name="X">Slot.ID</param>
+                                                    <param id="1" name="Y">0</param>
+                                                    <param id="2" name="Value">Function.Param(0)</param>
+                                                </action>
+                                                <action id="3" name="Set at XY" sid="784789528476127" type="arrInventory">
+                                                    <param id="0" name="X">Slot.ID</param>
+                                                    <param id="1" name="Y">1</param>
+                                                    <param id="2" name="Value">BULK_LIMITER</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="158343571395899" type="System">
+                                                    <param id="0" name="Variable">remainder</param>
+                                                    <param id="1" name="Value">Item.Amount - (BULK_LIMITER - arrInventory.At(Slot.ID, 1))</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="286035461628512" type="System">
+                                                    <param id="0" name="Variable">slotFound</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="141499266949072" type="Function">
+                                                    <param id="0" name="Name">&quot;AddToInventory&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Function.Param(0){###}Function.Param(1){###}Function.Param(2)</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="326157258871119">
+                                                    <conditions>
+                                                        <condition id="-14" name="Pick by unique ID" sid="997626357527650" type="Item">
+                                                            <param id="0" name="Unique ID">Function.Param(3)</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-10" name="Set value" sid="441667007438060" type="Item">
+                                                            <param id="0" name="Instance variable">Amount</param>
+                                                            <param id="1" name="Value">remainder</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
                                 </event-block>
                                 <comment>Slot is empty</comment>
                                 <event-block sid="776055009899836">
@@ -327,16 +453,20 @@
                                         <action id="3" name="Set at XY" sid="489705027095408" type="arrInventory">
                                             <param id="0" name="X">Slot.ID</param>
                                             <param id="1" name="Y">0</param>
-                                            <param id="2" name="Value">Item.AnimationFrame</param>
+                                            <param id="2" name="Value">Function.Param(0)</param>
                                         </action>
                                         <action id="3" name="Set at XY" sid="268995581238040" type="arrInventory">
                                             <param id="0" name="X">Slot.ID</param>
                                             <param id="1" name="Y">1</param>
-                                            <param id="2" name="Value">Item.Amount</param>
+                                            <param id="2" name="Value">Function.Param(1)</param>
                                         </action>
                                         <action id="-9" name="Set value" sid="797409460412398" type="System">
                                             <param id="0" name="Variable">slotFound</param>
                                             <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="770917421839937" type="Function">
+                                            <param id="0" name="Name">&quot;DestroyItem&quot;</param>
+                                            <param id="1" name="Parameter {n}">Function.Param(2)</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -355,42 +485,22 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <event-block sid="492426147325921">
+        <event-block sid="539498807594192">
             <conditions>
-                <condition id="0" name="On function" sid="597951981287266" type="Function">
-                    <param id="0" name="Name">&quot;UpdateInventory&quot;</param>
+                <condition id="0" name="On function" sid="420936090877283" type="Function">
+                    <param id="0" name="Name">&quot;DestroyItem&quot;</param>
                 </condition>
             </conditions>
             <actions />
             <sub-events>
-                <event-block sid="842643730129365">
+                <event-block sid="372043324749439">
                     <conditions>
-                        <condition id="-24" name="For Each (ordered)" sid="665566885439190" type="System">
-                            <param id="0" name="Object">Slot</param>
-                            <param id="1" name="Expression">Slot.ID</param>
-                            <param id="2" name="Order">0</param>
+                        <condition id="-14" name="Pick by unique ID" sid="944067860389780" type="Item">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
                         </condition>
-                        <condition id="-9" name="Is visible" sid="281243621814201" type="Slot" />
                     </conditions>
                     <actions>
-                        <action id="5" name="Set frame" sid="875868994630492" type="Slot">
-                            <param id="0" name="Frame number">arrInventory.At(Slot.ID, 0)</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="622236430555064">
-                    <conditions>
-                        <condition id="-24" name="For Each (ordered)" sid="356701454044965" type="System">
-                            <param id="0" name="Object">SlotText</param>
-                            <param id="1" name="Expression">SlotText.ID</param>
-                            <param id="2" name="Order">0</param>
-                        </condition>
-                        <condition id="-9" name="Is visible" sid="980626804772974" type="SlotText" />
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Set text" sid="178138324431801" type="SlotText">
-                            <param id="0" name="Text">arrInventory.At(SlotText.ID, 1)</param>
-                        </action>
+                        <action id="-9" name="Destroy" sid="548219233951053" type="Item" />
                     </actions>
                 </event-block>
             </sub-events>
