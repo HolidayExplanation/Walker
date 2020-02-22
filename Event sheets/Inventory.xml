@@ -53,5 +53,166 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-group description="" sid="387905302902244" title="Toggle Backpack Inventory">
+            <sub-events>
+                <event-block sid="300117790906883">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="669749407466599" type="Keyboard">
+                            <param id="0" name="Key">66</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="253174952787035">
+                            <conditions>
+                                <condition id="-24" name="For Each (ordered)" sid="947304144761399" type="System">
+                                    <param id="0" name="Object">SlotBackground</param>
+                                    <param id="1" name="Expression">SlotBackground.ID</param>
+                                    <param id="2" name="Order">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="658716461674760">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="333813526694845" type="SlotBackground">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">6</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="151965201535528" type="SlotBackground">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">15</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="664560579979397">
+                                            <conditions>
+                                                <condition id="-9" name="Is visible" sid="322936956095320" type="SlotBackground" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-15" name="Set visible" sid="219788729834488" type="SlotBackground">
+                                                    <param id="0" name="Visibility">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="696715285197076">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="272282079054253" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-15" name="Set visible" sid="560810593022713" type="SlotBackground">
+                                                    <param id="0" name="Visibility">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="373206752567399">
+                            <conditions>
+                                <condition id="-24" name="For Each (ordered)" sid="383875279266842" type="System">
+                                    <param id="0" name="Object">Slot</param>
+                                    <param id="1" name="Expression">Slot.ID</param>
+                                    <param id="2" name="Order">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="101965239394684">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="779047731163999" type="Slot">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">6</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="533861280972145" type="Slot">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">15</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="906918465571263">
+                                            <conditions>
+                                                <condition id="-9" name="Is visible" sid="288678402210149" type="Slot" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-15" name="Set visible" sid="774641927005895" type="Slot">
+                                                    <param id="0" name="Visibility">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="964282315623401">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="540006228446364" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-15" name="Set visible" sid="827948982636198" type="Slot">
+                                                    <param id="0" name="Visibility">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="921368140016998">
+                            <conditions>
+                                <condition id="-24" name="For Each (ordered)" sid="116418855791598" type="System">
+                                    <param id="0" name="Object">SlotText</param>
+                                    <param id="1" name="Expression">Slot.ID</param>
+                                    <param id="2" name="Order">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="760064727464704">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="283384079311686" type="SlotText">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">6</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="158853459699294" type="SlotText">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">15</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="588529953645999">
+                                            <conditions>
+                                                <condition id="-9" name="Is visible" sid="829650901114058" type="SlotText" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-15" name="Set visible" sid="651026985835446" type="SlotText">
+                                                    <param id="0" name="Visibility">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="181825628489156">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="631780914474188" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-15" name="Set visible" sid="383340691296573" type="SlotText">
+                                                    <param id="0" name="Visibility">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
     </events>
 </c2eventsheet>
