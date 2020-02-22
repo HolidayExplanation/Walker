@@ -11,9 +11,10 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </configurations>
     <open-tabs>
         <layout order="0">Layout</layout>
-        <event-sheet active="1" order="0">EventSheet</event-sheet>
         <event-sheet order="1">Inventory</event-sheet>
-        <event-sheet order="2">Gui</event-sheet>
+        <event-sheet order="2">EventSheet</event-sheet>
+        <event-sheet active="1" order="3">Gui</event-sheet>
+        <event-sheet order="4">Devices</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -26,7 +27,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="object-folder/" />
         <folder expanded="0" path="object-folder/Methods/" />
         <folder expanded="1" path="object-folder/Prefabs/" />
-        <folder expanded="0" path="object-folder/Gui/" />
+        <folder expanded="1" path="object-folder/Gui/" />
         <folder expanded="1" path="layout-folder/" />
         <folder expanded="1" path="event-folder/" />
         <folder expanded="1" path="event-folder/Parts/" />
