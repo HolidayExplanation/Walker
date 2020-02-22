@@ -214,5 +214,186 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-group description="" sid="101835822426234" title="Set Backpack Inventory as Locked on Runtime">
+            <sub-events>
+                <event-block sid="758558466249785">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="130344320823199" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="i" sid="840125694961052" static="0" type="number">0</variable>
+                        <event-block sid="461305081185945">
+                            <conditions>
+                                <condition id="-12" name="Repeat" sid="111614707803519" type="System">
+                                    <param id="0" name="Count">10</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set at XY" sid="671471570149157" type="arrInventory">
+                                    <param id="0" name="X">6 + i</param>
+                                    <param id="1" name="Y">2</param>
+                                    <param id="2" name="Value">1</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="350714732337964" type="System">
+                                    <param id="0" name="Variable">i</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="355827751300499" type="System">
+                                    <param id="0" name="Seconds">1.0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <variable constant="0" name="slotFound" sid="505779698588356" static="0" type="number">0</variable>
+        <event-block sid="975889176484158">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="221151579738236" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">Item</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="853288188000115" type="System">
+                    <param id="0" name="Variable">slotFound</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="705684997866175">
+                    <conditions>
+                        <condition id="-24" name="For Each (ordered)" sid="120291170812493" type="System">
+                            <param id="0" name="Object">Slot</param>
+                            <param id="1" name="Expression">Slot.ID</param>
+                            <param id="2" name="Order">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <comment>Slot is not Locked</comment>
+                        <event-block sid="728259783637665">
+                            <conditions>
+                                <condition id="1" name="Compare at XY" sid="634933326706593" type="arrInventory">
+                                    <param id="0" name="X">Slot.ID</param>
+                                    <param id="1" name="Y">2</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">0</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="484528730917444" type="System">
+                                    <param id="0" name="Variable">slotFound</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <comment>Slot has same Item</comment>
+                                <event-block sid="104724357462530">
+                                    <conditions>
+                                        <condition id="1" name="Compare at XY" sid="723046551445451" type="arrInventory">
+                                            <param id="0" name="X">Slot.ID</param>
+                                            <param id="1" name="Y">0</param>
+                                            <param id="2" name="Comparison">0</param>
+                                            <param id="3" name="Value">Item.AnimationFrame</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="3" name="Set at XY" sid="495862348764374" type="arrInventory">
+                                            <param id="0" name="X">Slot.ID</param>
+                                            <param id="1" name="Y">1</param>
+                                            <param id="2" name="Value">arrInventory.At(Slot.ID, 1) + Item.Amount</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="943135076152032" type="System">
+                                            <param id="0" name="Variable">slotFound</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>Slot is empty</comment>
+                                <event-block sid="776055009899836">
+                                    <conditions>
+                                        <condition id="1" name="Compare at XY" sid="554333167705655" type="arrInventory">
+                                            <param id="0" name="X">Slot.ID</param>
+                                            <param id="1" name="Y">0</param>
+                                            <param id="2" name="Comparison">0</param>
+                                            <param id="3" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="3" name="Set at XY" sid="489705027095408" type="arrInventory">
+                                            <param id="0" name="X">Slot.ID</param>
+                                            <param id="1" name="Y">0</param>
+                                            <param id="2" name="Value">Item.AnimationFrame</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="268995581238040" type="arrInventory">
+                                            <param id="0" name="X">Slot.ID</param>
+                                            <param id="1" name="Y">1</param>
+                                            <param id="2" name="Value">Item.Amount</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="797409460412398" type="System">
+                                            <param id="0" name="Variable">slotFound</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="559204794368367">
+                            <conditions />
+                            <actions>
+                                <action id="0" name="Call function" sid="833758487326975" type="Function">
+                                    <param id="0" name="Name">&quot;UpdateInventory&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="492426147325921">
+            <conditions>
+                <condition id="0" name="On function" sid="597951981287266" type="Function">
+                    <param id="0" name="Name">&quot;UpdateInventory&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="842643730129365">
+                    <conditions>
+                        <condition id="-24" name="For Each (ordered)" sid="665566885439190" type="System">
+                            <param id="0" name="Object">Slot</param>
+                            <param id="1" name="Expression">Slot.ID</param>
+                            <param id="2" name="Order">0</param>
+                        </condition>
+                        <condition id="-9" name="Is visible" sid="281243621814201" type="Slot" />
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="875868994630492" type="Slot">
+                            <param id="0" name="Frame number">arrInventory.At(Slot.ID, 0)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="622236430555064">
+                    <conditions>
+                        <condition id="-24" name="For Each (ordered)" sid="356701454044965" type="System">
+                            <param id="0" name="Object">SlotText</param>
+                            <param id="1" name="Expression">SlotText.ID</param>
+                            <param id="2" name="Order">0</param>
+                        </condition>
+                        <condition id="-9" name="Is visible" sid="980626804772974" type="SlotText" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="178138324431801" type="SlotText">
+                            <param id="0" name="Text">arrInventory.At(SlotText.ID, 1)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
     </events>
 </c2eventsheet>
