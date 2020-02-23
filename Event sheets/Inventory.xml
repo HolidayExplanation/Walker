@@ -321,6 +321,10 @@
                     <param id="0" name="Type">0</param>
                     <param id="1" name="Message">&quot;Add to Inventory runs!&quot;</param>
                 </action>
+                <action id="14" name="Log" sid="649917197460641" type="Browser">
+                    <param id="0" name="Type">1</param>
+                    <param id="1" name="Message">Function.Param(1)</param>
+                </action>
                 <action id="-9" name="Set value" sid="853288188000115" type="System">
                     <param id="0" name="Variable">slotFound</param>
                     <param id="1" name="Value">0</param>
@@ -361,7 +365,7 @@
                                             <param id="0" name="X">Slot.ID</param>
                                             <param id="1" name="Y">0</param>
                                             <param id="2" name="Comparison">0</param>
-                                            <param id="3" name="Value">Item.AnimationFrame</param>
+                                            <param id="3" name="Value">Function.Param(0)</param>
                                         </condition>
                                     </conditions>
                                     <actions />
@@ -395,7 +399,6 @@
                                         <event-block sid="934570149496824">
                                             <conditions>
                                                 <condition id="-22" name="Else" sid="916933489309210" type="System" />
-                                                <condition id="-4" name="Trigger once while true" sid="770017608831616" type="System" />
                                             </conditions>
                                             <actions>
                                                 <action id="3" name="Set at XY" sid="928631265044345" type="arrInventory">
@@ -403,35 +406,43 @@
                                                     <param id="1" name="Y">0</param>
                                                     <param id="2" name="Value">Function.Param(0)</param>
                                                 </action>
-                                                <action id="3" name="Set at XY" sid="784789528476127" type="arrInventory">
-                                                    <param id="0" name="X">Slot.ID</param>
-                                                    <param id="1" name="Y">1</param>
-                                                    <param id="2" name="Value">BULK_LIMITER</param>
-                                                </action>
                                                 <action id="-9" name="Set value" sid="158343571395899" type="System">
                                                     <param id="0" name="Variable">remainder</param>
                                                     <param id="1" name="Value">Item.Amount - (BULK_LIMITER - arrInventory.At(Slot.ID, 1))</param>
                                                 </action>
-                                                <action id="-9" name="Set value" sid="286035461628512" type="System">
-                                                    <param id="0" name="Variable">slotFound</param>
-                                                    <param id="1" name="Value">1</param>
-                                                </action>
-                                                <action id="0" name="Call function" sid="141499266949072" type="Function">
-                                                    <param id="0" name="Name">&quot;AddToInventory&quot;</param>
-                                                    <param id="1" name="Parameter {n}">Function.Param(0){###}Function.Param(1){###}Function.Param(2)</param>
+                                                <action id="3" name="Set at XY" sid="784789528476127" type="arrInventory">
+                                                    <param id="0" name="X">Slot.ID</param>
+                                                    <param id="1" name="Y">1</param>
+                                                    <param id="2" name="Value">BULK_LIMITER</param>
                                                 </action>
                                             </actions>
                                             <sub-events>
                                                 <event-block sid="326157258871119">
                                                     <conditions>
                                                         <condition id="-14" name="Pick by unique ID" sid="997626357527650" type="Item">
-                                                            <param id="0" name="Unique ID">Function.Param(3)</param>
+                                                            <param id="0" name="Unique ID">Function.Param(2)</param>
                                                         </condition>
                                                     </conditions>
                                                     <actions>
+                                                        <action id="14" name="Log" sid="788882986208438" type="Browser">
+                                                            <param id="0" name="Type">0</param>
+                                                            <param id="1" name="Message">&quot;Doesn&apos;t fit&quot;</param>
+                                                        </action>
                                                         <action id="-10" name="Set value" sid="441667007438060" type="Item">
                                                             <param id="0" name="Instance variable">Amount</param>
                                                             <param id="1" name="Value">remainder</param>
+                                                        </action>
+                                                        <action id="14" name="Log" sid="750385401877520" type="Browser">
+                                                            <param id="0" name="Type">0</param>
+                                                            <param id="1" name="Message">&quot;Remainder: &quot; &amp;  remainder</param>
+                                                        </action>
+                                                        <action disabled="1" id="-9" name="Set value" sid="286035461628512" type="System">
+                                                            <param id="0" name="Variable">slotFound</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                        <action id="0" name="Call function" sid="141499266949072" type="Function">
+                                                            <param id="0" name="Name">&quot;AddToInventory&quot;</param>
+                                                            <param id="1" name="Parameter {n}">Function.Param(0){###}remainder{###}Function.Param(2)</param>
                                                         </action>
                                                     </actions>
                                                 </event-block>
